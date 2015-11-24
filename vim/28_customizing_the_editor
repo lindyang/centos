@@ -1,0 +1,25 @@
+set invlist
+set list?
+set list&
+set nolist
+
+set sw=4
+set sw+=4
+set sw-=2
+set sw?
+set sw^=2
+set sw&
+
+http://man.chinaunix.net/newsoft/vi/doc/indent.html
+
+set sw:9
+termcap
+
+/* vim: set nu sw=2 : */
+vim: list: sw=2
+
+nomodeline
+modeline
+modelines mls
+
+set expandtab

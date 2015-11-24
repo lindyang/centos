@@ -1,0 +1,93 @@
+cd /etc/sysconfig/network-scripts/
+vi network-enp***
+change 'ONBOOT=no' to 'ONBOOT=yes'
+
+yum search fonts | grep 'chinese'
+ghostscript-chinese-zh_CN.noarch : Ghostscript Simplified Chinese fonts
+ghostscript-chinese-zh_TW.noarch : Ghostscript Traditional Chinese fonts
+yum install ghostscript-chinese-zh_CN.noarch
+
+yum install firefox
+
+http://sourceforge.net/projects/huhamhirehosts/files/HostsTool-v1.9.8-SE-beta.5/
+yum install PyQt4 
+
+安装谷歌浏览器
+http://www.tecmint.com/install-google-chrome-on-redhat-centos-fedora-linux/
+步骤1
+[google-chrome]
+name=google-chrome
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
+步骤2
+yum info google-chrome-stable
+yum install google-chrome-stable
+wget http://chrome.richardlloyd.org.uk/install_chrome.sh
+chmod u+x install_chrome.sh
+./install_chrome.sh
+
+安装桌面
+yum groupinstall 'X Window System' -y
+yum groupinstall GNOME Desktop Environment
+
+安装QQ2012
+http://www.cnblogs.com/VincentHome/archive/2013/04/10/3012683.html
+http://pan.baidu.com/share/link?shareid=468824&uk=2148507123
+
+[nfts-3g]
+http://blog.163.com/phys_atom/blog/static/167644553201432598312/
+https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2015.3.14.tgz
+http://www.tuxera.com/community/ntfs-3g-download/
+
+yum install gcc
+
+yum update
+
+[yum-config-manager: commant not found]
+yum -y install yum-utils
+sudo yum-config-manager --add-repo=https://copr.fedoraproject.org/coprs/mosquito/myrepo/repo/epel-7/mosquito-myrepo-epel-7.repo
+yum install fcitx-googlepinyin fcitx-cloudpinyin # 谷歌拼音输入法
+yum install fcitx-configtool
+
+
+[无线网卡驱动]
+http://www.cnblogs.com/kluan/p/4457903.html
+
+http://tieba.baidu.com/p/3379447850
+http://www.2cto.com/os/201411/354914.html
+
+insert into `phone_user` (field) select .,., from `phone4_user`;
+
+cp WINDOWS/fonts/{font}/ /usr/share/fonts/
+chmod u+rwx /usr/share/fonts/w7fonts/*
+cd /usr/share/fonts/w7fonts/
+mkfontscale
+mkfontdir
+fc-cache -fv
+宋体simsun.ttc、黑体simhei.ttc、仿宋simfang.ttf、楷体simkai.ttf、隶书simli.ttf、幼圆simyou.ttf,另外推荐大家安装微软雅黑字体，
+
+http://tieba.baidu.com/p/3293480718?pn=2
+
+fcitx-diagnose
+查看Cannot find fcitx im module for [gtk 2] in cache
+然后yum install fcitx-gtk2; yum install fcitx-qt4;
+编辑
+/usr/lib64/gtk-2.0/2.10.0/immodules.cache
+添加
+"/usr/lib64/gtk-2.0/2.10.0/immodules/im-fcitx.so"
+"fcitx" "Fcitx (Flexible Input Method Framework)" "fcitx" "/usr/share/locale" "ja:ko:zh:*"
+设置fcitx开机自启动
+gnome-session-properties
+添加/esr/bin/fcitx启动项
+http://blog.csdn.net/yang1982_0907/article/details/17100409
+
+[Hide Caption Titlebar Plus]
+https://addons.mozilla.org/zh-CN/firefox/addon/hide-caption-titlebar-plus-sma/
+
+[解决firefox输入法的问题]
+update-gtk-immodules
+gtk-query-immodules-2.0
+gtk-query-immodules-3.0
+
