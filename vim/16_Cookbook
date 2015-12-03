@@ -1,0 +1,57 @@
+twiddle 捻弄
+move to top
+ma
+move to bottom
+d'a
+p
+
+move ot top
+ma
+mov to bottom
+mb
+;'a,'b move .
+
+CRTL-W p
+ma
+y'a
+CRTL-W p
+p
+
+V
+y
+CRTL-W p
+
+"*y
+"*p
+系统剪切版有问题
+
+:sort 使用vim的排序
+:%!sort
+!'asort work start on current line, and ends at mark a.
+
+239 Finding a Procedure in a C Program
+
+$ ctags *.c *.h
+$ ctags *.cpp *.h
+
+$ gvim -t write_file (procedure)
+if it calls setup_date
+CTRL-]
+
+:'<,'> !boxes -r
+
+$ man date | ul -i | vim -
+:%s/.\b//g
+
+:%s/ \s*$//
+
+help cmdline-special
+
+cmap w!! w !sudo tee > /dev/null %
+cmap w!! w !sudo sh -c "cat > %"
+
+vim `grep -l 'frame_conter' *.c`
+:args `grep -l 'frame_conter' *.c`
+:vimgrep error_string *.c
+:cnext
+:cprev

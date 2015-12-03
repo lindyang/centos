@@ -1,0 +1,3 @@
+print('%x' %15) # 0xf
+int('f', 16) # '0xf'
+eval('0xff')
