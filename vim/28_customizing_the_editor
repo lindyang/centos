@@ -23,3 +23,31 @@ modeline
 modelines mls
 
 set expandtab
+
+set exrc # allow .vimrc .gvimrc
+set secure # prevents :autocommand :write :shell
+
+set winaltkeys=no; # alt 不仅仅是给Menu用的
+:map <M-F> :write # alt is Meta
+set winaltkeys=yes;
+set winaltkwys=menu # 
+set conskey
+set bioskey
+
+set esckeys
+set timeout
+set ttimeout
+set timeoutlen=1000(milliseconds)
+set ttimeoutlen=500
+# 等待1/2秒，看是否是一个函数；等待1秒， 看是否是一个键盘影射
+
+set confirm # 对话框, 当你更改了一个文件， 并且没有保存，:quit
+set cmdheight=3
+set showmode
+set showcmd
+
+set shortmess
+set terse
+set nowarn
+errorbells
+visualbell

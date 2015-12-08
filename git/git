@@ -1,0 +1,2 @@
+git status 不能显示汉字
+git config core.quotepaht false

@@ -1,3 +1,77 @@
 print('%x' %15) # 0xf
 int('f', 16) # '0xf'
 eval('0xff')
+
+如何构建django环境
+wget https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz
+安装png，jpeg支持
+yum install -y libjpeg-devel
+yum install -y libpng-devel
+安装httpd，httpd-devel
+yum install -y httpd httpd-devel
+让hhtpd开机自启动
+chkconfig httpd on
+#ln -s '/usr/lib/systemd/system/httpd.service' '/etc/systemd/system/multi-user.target.wants/httpd.service'
+apachectl start
+安装“Development tools”
+yum groupinstall -y "Development tools"
+
+# 安装过程中可能会遇到问题
+yum groups mark install "Development tools"
+yum groups mark convert "Development tools"
+https://access.redhat.com/discussions/1262603
+
+#==== Development tools =======
+binutils
+elfutils
+gcc
+gcc-c++
+gcc-gfortran
+redhat-rpm-config
+rpm-build
+rpm-sign
+subversion
+systemtap
+
+Installing for dependncies:
+boost-system
+boost-thread
+mokutil
+updating for dependencies:
+cpp
+dyninst
+elfutils-libelf
+elfutils-libs
+libgcc
+libgfortran
+libgomp
+libquadmath
+libquadmath-devel
+libstdc++
+libstdc++devel
+rpm
+rpm-build-libs
+rpm-libs
+rpm-python
+subversion-libs
+systemtap-client
+systemtap-devel
+systemtap-runtime
+
+yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline
+
+yum install mariadb mariadb-server mariadb-devel
+sudo systemctl enable mariadb.service
+sudo systemctl start mariadb.service
+yum install -y tar
+
+./configure --enable-shared --prefix=/usr/local LDFLAGS="-Wl,-rpath /usr/local/lib"
+make
+make altinstall
+apachectl restart
+
+pip3.4 install mode_wsgi
+mod_wsgi-express install-module
+LoadModule wsgi_module /usr/lib64/httpd/modules/mod_wsgi-py35.cpython-35m-x86_64-linux-gnu.so
+
+
