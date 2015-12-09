@@ -142,3 +142,7 @@ rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 2> To install ELRepo for RHEL-7, SL-7 or CentOS-7:
 rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
 yum install kmod-hfsplus
+
+firewall-cmd --get-active-zones
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --reload

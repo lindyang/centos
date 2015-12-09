@@ -1,0 +1,7 @@
+.*[]^%/\?~$ have special meaning %~
+/<Enter> same as n
+q/ Vim open up a search history(q?)
+To clear the current highlighting, :nohlsearch
+set incsearch
+
+
