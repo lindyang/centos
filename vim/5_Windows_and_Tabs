@@ -1,0 +1,105 @@
+close
+vsplit(vs)
+execute an initial command using the +command convention
+{lines} split +/printf three.c
+ctrl-wn :new
+Split Summary
+count split +command file
+new opens a window containing a new, empty file.
+vnew/new
+sview/sv split and view
+:vertical sview(:vert sview)
+
+count ctrl-w+
+count ctrl-w-
+ctrl-w=
+count ctrl-w_ makes the current widow lines high.
+If no count is specified, the window is increased to its maximum size
+
+:resize [+|-]lines
+if no argument is given to maximum hight
+hide
+a buffer can has three states:
+Active  Appears onscreen
+Hidden  A file is being edited, but does not appear onscreen.
+Inactive The file is not being edited, but keep the information about it anyway
+
+a file that was included in the command with which you started vim, but was not edited, will also be an inactive buffer.
+
+buffers/ls/files
+
+- Inactive buffer.
+h Buffer is hidden
+% Current buffer
+# Alternate buffer
++ File has been modified
+
+help help.txt editing.txt
+
+buffer number(bno.)
+buffer file(b file)
+{number}buffer
+sbuffer number
+vertical sbuffer number
+
+count sbnext(sbn)
+count bprevious(sbp)
+
+sblast(sbl)
+brewind
+
+bmodified count(bm)
+
+buftype(bt)
+<empty> Normal buffer
+acwrite A buffer which will always be written with an :autocmd
+help Help window
+nofile A buffer that is not associated with a file and will not be written
+nowrite This buffer will not be written
+quickfix A quickfix list
+
+:set hidden Keep the contents of all your old buffers around while editing
+
+:hide command always hides the current file no matter what the 'hidden' option is set to
+
+'buflisted'('bl') command tell Vim if a buffer is to be listed in the buffers or :ls command.
+
+'bufhidden('bh') Fine tune when a buffer appears and hides.
+
+<empty> The value of the 'hidden' options is used to decide whether or not to hide the buffer
+delete Delete the buffer as if a :bdelete were performed on it.(Use cation unsaved changes can easily be discarded.)
+hide Hide, but do not unload the buffer. (As if 'hidden' where set.)
+unload Unload the buffer(Warning: Unsaved changes can easily be discarded.)
+wipe Wipeout the buffer as if the :bwipeout command were executed.(...)
+
+'switchbuf'('swb') option is set to useopen
+:set swb=""
+:sbr
+:set swb=useopen
+:sbr
+
+switchbuf option: (nothing), split, useopen, usetab
+
+:tabnew(tabe,tabedit) {file-name}
+
+:tab command will cause any command that would open a new window to open tab insted
+:tab split test.txt
+
+:tabclose [number]
+:tabonly[!]
+
+:tabn(ext) [count]
+gT
+gt
+tabf(irst)/tabr(ewind)
+tabl(ast)
+
+ctrl-wgf opens a new tab and starts to edit the file who's name is under the cursor
+
+ctrl-wgF jumps to the line number following the file name
+
+:tabfind :tabnew find
+
+vim -o[num] file1 file2 file3
+
+tabpagemax(tpm)
