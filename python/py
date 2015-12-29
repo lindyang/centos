@@ -82,5 +82,5 @@ import inspect
 inspect.getfile(os)
 inspect.getsourcefile(os)
 
-import img
+import imp
 imp.find_module('os')

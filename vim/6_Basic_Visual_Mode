@@ -1,0 +1,18 @@
+v(visual mode)
+V(line visual mode)
+ctrl-v(block visual mode)
+:help v_d
+Leaving Visual Mode <Esc>/ctrl-c
+ctrl-\ctrl-n
+
+gJ join lines without joining space
+
+> < = indents the text the proper amount
+ctrl-] jump to definition of the function
+
+visual block c acts just normal-mode c if the text contains more than one line
+A/I
+crtl-V$jj -> AXXX<Esc>
+:help v_b_r
+
+

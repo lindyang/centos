@@ -34,3 +34,14 @@ http://www.xue163.com/news/1259/12594123.html
 
 CLI表示将处理器标志寄存器的中断标志位清0,不允许中断
 
+
+http://www.searchtb.com/2013/03/x86-64_register_and_function_frame.html
+
+rax rbx rcx rdx rdi rsi  rbp rsp
+r8-r15
+
+rax 函数返回值
+rsp 栈指针寄存器， 指向栈顶
+rdi, rsi, rdx, rcx, r8, r9 用作函数参数， 第1参数，第2参数
+rbx, rbp, r12, r13, r14, r15 数据存储
+r10, r11 使用之前保存原值

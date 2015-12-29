@@ -1,0 +1,6 @@
+1.创建库时指定编码：create database testdb default charset GBK
+2.修改库的编码： ALTER DATABASE `testtable` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin
+3.修改表的编码：ALTER TABLE `testtable` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin 4
+4.修改字段的编码：
+ALTER TABLE `tablename` CHANGE `dd` `dd` VARCHAR( 45 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+是将MYSQL数据库tablename表中 dd的字段编码改能够该为utf8

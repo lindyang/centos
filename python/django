@@ -1,0 +1,159 @@
+class Field
+/usr/local/lib/python3.5/site-packages/django/db/models/fields/__init__.py
+
+@total_ordering
+from functools import total_ordering
+Class decorator that fills in missing ordering methods
+
+_convert = {
+    '__lt__': [('__gt__', _gt_from_lt),
+               ('__le__', _le_from_lt),
+               ('__ge__', _ge_from_lt)],
+    '__le__': [('__ge__', _ge_from_le),
+
+
+__lt__ <: >, <=, >=
+__le__ <=: >=, <, >
+__gt__ >: <, >=, <=
+__ge__ >=: <=, >, <
+
+def _gt_from_lt(self, other, NotImplemented=NotImplemented)
+    'Return a > b. Computed by @total_ordering from (not a < b) and (a != b).'
+    op_result = self.__lt__(other)
+    if op_result is NotImplemented:
+        return op_result # NotImplemented
+    return not op_result and self != other
+/usr/local/lib/python3.5/functools.py 97l
+没有理解
+getattr
+for opname, opfunc in _convert[root]
+
+roots = ['__le__', '__gt__']
+root = max(roots) # __le__
+for opname, opfunc in
+[('__ge__', _ge_from_le),
+ ('__lt__', _lt_from_le),
+ ('__gt__', _gt_from_le)],
+
+__ge__ not in ['__le__', '__gt__']
+_ge_from_le.__name__ = '__ge__'
+
+
+@python_2_unicode_compatible
+from django.utils.encoding import python_2_unicode_compatible
+
+python_2_unicode_compatible = six.python_2_unicode_compatible
+from django.utils import six
+
+def python_2_unicode_compatible(klass):
+    """
+    A decorator that defines __unicode__ and __str__ methods under Python 2.
+    Under Python 3 it does nothing.
+    To support Python 2 and 3 with a single code base, define a __str__ method
+    return text and apply this decortator to the class
+    """
+    if PY2:
+        if '__str__' not in klass.__dict__:
+            if '__str__' not in klass.__dict__:
+                raise ValueError("@python_2_unicode_compatible cannot be applied "
+                                 "to %s because it doesn't define __str__().' %
+                                klass.__name__)
+            klass.__unicode__ = klass.__str__
+            klass.__str__ = lambda self: self.__unicode__().encode('utf-8')
+        return klass
+
+
+from django.db.models.query_utils import RegisterLookupMixin
+
+class RegisterLookupMixin(object):
+    def _get_lookup(self, lookup_name):
+        try:
+            return self.class_lookups[lookup_name]
+        except KeyError:
+            # To allow for inheritance, check parent class' class_lookups.
+            for parent in inspect.getmro(self.__class__):
+                if 'class_lookups' not in parent.__dict__:
+                    continue
+                if lookup_name in parent.class_lookups:
+                    return parent.class_lookups[lookup_name]
+        except AttributeError:
+            # This class didn't have any class_lookups
+            pass
+        return None
+
+    def get_lookup(self, lookup_name):
+        from django.db.models.lookups import Lookup
+        found = self._get_lookup(lookup_name)
+        if found is None and hasattr(self, 'output_field'):
+            return self.output_field.get_lookup(lookup_name)
+        if found is not None and not issubclass(found, Lookup):
+            return None
+        return found
+
+    def get_transform(self, lookup_name):
+        from django.db.models.lookups import Transform
+        found = self._get_lookup(lookup_name)
+        if found is None and hasattr(self, 'output_field'):
+            return self.output_field.get_transform(lookup_name)
+        if found is not None and not issubclass(found, Transform):
+            return None
+        return found
+
+    @classmethod
+    def register_lookup(cls, lookup, lookup_name=None):
+        if lookup_name is None:
+            lookup_name = lookup.lookup_name
+        if 'class_lookups' not in cls.__dict__:
+            cls.class_lookups = {}
+        cls.class_lookups[lookup_name] = lookup
+        return lookup
+
+    @classmethod
+    def _unregister_lookup(cls, lookup, lookup_name=None):
+        """
+        Remove given lookup from cls lookups. For use in tests only as it's
+        not thread-safe
+        """
+        if lookup_name is None:
+            lookup_name = lookup.lookup_name
+        del cls.class_lookups[lookup_name]
+
+inspect, Lookup, Transform, classmethod
+/local/lib/python3.5/site-packages/django/db/models/lookups.py
+
+class Student(object):
+    @property
+    def birth(self):
+        return self._birth
+
+    @birth.setter
+    def birth(self, value):
+        self._birth = value
+
+    @property
+    def age(self):
+        return 2014 - self._birth
+
+from django.utils.translation import ugettext_lazy as _
+ugettext_lazy = lazy(ugettext, six.text_type)
+from django.utils.functional import lazy
+
+import functools
+def log(text):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print('%s %s()' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+
+lazy 不能理解
+
+def ugettext(message):
+    return _trans.ugettext(message)
+
+_trans = Trans()
+
+related_model = None
+__mro__ method resolution order

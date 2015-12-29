@@ -1,0 +1,49 @@
+$HOME/.cshrc
+if ($term == xterm) set term = xterm-color
+
+$HOME/.bashrc
+if [ $TERM == xterm ]; then export TERM=xterm-color; fi
+
+:set filetype=c
+:help new-filetype
+
+:edit $VIMRUNTIME/syntax/colortest.vim
+:source %
+
+5<<
+<motion
+
+:filetype on
+:autocmd FileType c,cpp :set cindent
+
+:setfiletype(:setf) which sets the 'filetype' only if it has not already been set by another :autocmd
+:autocmd BufRead *.cpp :set filetype=c
+:autocmd BufRead *.html :set filetype=html
+:autocmd BufRead * :setfiletype text
+
+cinwords
+
+ctrl-d
+=motion
+=%
+{ v % =
+dp(diff put)
+do(diff obtain)
+dg the beginning of a d{motion} command
+zfi{ zf{motion}
+foldmethod(fdm)
+:set foldmethod=indent
+reset the folding to the defaults(no overrides) with the command zX
+zv opens enough folds to make the line the cursor is visible
+foldlevel(fdl) controls how many level of indents cause Vim to fold
+foldlevel to 3, anything indented three or more 'shiftwidth'('sw') indentations is folded.
+zm(fold more)
+zr(fold reduce)
+zR(zM)
+foldignore(fdi)
+foldlevelstart
+
+ctrl-I, ]ctrl-I search for a world in the current file and brought in by #include
+gd, gD search for the definition of a variable
+]ctrl-d, [ctrl-d Jump to macro definition
+]d,[d, ]D, [D Display macro definitions

@@ -146,3 +146,9 @@ yum install kmod-hfsplus
 firewall-cmd --get-active-zones
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --reload
+
+nasm gcc
+http://stackoverflow.com/questions/5124910/linking-problem-i386x86-64-architecture-of-input-file-o-is-incompatible-with
+
+nasm compileer
+http://askubuntu.com/questions/85978/building-a-32-bit-app-in-64-bit-ubuntu
